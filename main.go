@@ -17,6 +17,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+  "html"
 	"os"
 	"strconv"
 	"strings"
