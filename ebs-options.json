@@ -12,7 +12,7 @@
     {
         "Namespace": "aws:elasticbeanstalk:application:environment", 
         "OptionName": "INVOICER_POSTGRES_PASSWORD", 
-        "Value": "POSTGRESPASSREPLACEME"
+        "Value": "totototo"
     }, 
     {
         "Namespace": "aws:elasticbeanstalk:application:environment", 
@@ -22,7 +22,7 @@
     {
         "Namespace": "aws:elasticbeanstalk:application:environment", 
         "OptionName": "INVOICER_POSTGRES_HOST", 
-        "Value": "POSTGRESHOSTREPLACEME"
+        "Value": "invoicer-db.cfxatc0b73v9.us-east-1.rds.amazonaws.com"
     },
     {
         "Namespace": "aws:elasticbeanstalk:application:environment", 

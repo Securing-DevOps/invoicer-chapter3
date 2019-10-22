@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "docker.io/securingdevops/invoicer-chapter3",
+    "Name": "docker.io/repocj/invoicer-chapter3",
     "Update": "true"
   },
   "Ports": [
