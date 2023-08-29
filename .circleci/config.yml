@@ -12,6 +12,7 @@ jobs:
     branches:
       only:
         - master
+        - featbr2
     steps:
       - checkout
       - setup_remote_docker
