@@ -3,14 +3,13 @@ jobs:
   build:
     # Variable expansion in working_directory not supported at this time
     # You will need to modify the code below to reflect your github account/repo setup
-    working_directory: /go/src/github.com/Securing-DevOps/invoicer-chapter3
+    working_directory: /go/src/github.com/dubiZA/invoicer-chapter3
     docker:
       - image: circleci/golang:1.8
     environment:
       GO15VENDOREXPERIMENT: 1
-    branches:
-      only:
-        - master
+      CIRCLE_PROJECT_USERNAME: "dubiZA"
+      CIRCLE_PROJECT_REPONAME: "invoicer-chapter3"
     steps:
       - checkout
       - setup_remote_docker
@@ -44,7 +43,7 @@ jobs:
             (
             docker pull owasp/zap2docker-weekly && \
             docker run -t owasp/zap2docker-weekly zap-baseline.py \
-                -u https://raw.githubusercontent.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/master/zap-baseline.conf \
+                -u https://raw.githubusercontent.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/main/zap-baseline.conf \
                 -t http://172.17.0.2:8080/ || \
             if [ $? -ne 1 ]; then exit 0; else exit 1; fi;
             )
@@ -56,7 +55,7 @@ jobs:
       - deploy:
           # Push application container to dockerhub
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
                 docker login -u ${DOCKER_USER} -p ${DOCKER_PASS};
                 echo ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_TAG};
                 go install --ldflags '-extldflags "-static"' github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME};

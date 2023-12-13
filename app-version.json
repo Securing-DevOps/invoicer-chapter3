@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "docker.io/securingdevops/invoicer-chapter3",
+    "Name": "docker.io/dubiza/invoicer-chapter2",
     "Update": "true"
   },
   "Ports": [
